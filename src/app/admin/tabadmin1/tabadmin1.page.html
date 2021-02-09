@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>{{'CREA' | translate}}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="admin"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="success">
+  <div id="container">
+    <h1>&bull; {{'CREATE' | translate}} &bull;</h1>
+    <div class="underline">
+    </div>
+    <div class="icon_wrapper">
+
+    </div>
+    <form [formGroup]="places" (ngSubmit)="this.sendForm()" action="#" method="post" id="contact_form">
+      <div class="name">
+        <label for="name"></label>
+        <input type="text" placeholder="{{'NAME' | translate}}" formControlName="name" name="name" id="name_input" required>
+      </div>
+
+      <div class="email">
+        <label for="email"></label>
+        <input type="email" placeholder="{{'PHONE' | translate}}" formControlName="n_phone" name="n_telefono" id="email_input"
+          required>
+      </div>
+
+      <div class="telephone">
+        <label for="name"></label>
+        <input type="text" placeholder="{{'ADRESS' | translate}}" formControlName="adress" name="adress" id="telephone_input" required>
+      </div>
+
+
+
+
+      <label for="message"></label>
+      <div>
+        <ion-button color="tertiary">Ubicación
+          <ion-icon name="location-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="camara()" color="tertiary" style="float: left;">Camara
+          <ion-icon name="camera-outline"></ion-icon>
+        </ion-button>
+
+        <ion-button (click)="openGallery()" color="tertiary" style="float: left;">Galeria
+          <ion-icon name="image-outline"></ion-icon>
+        </ion-button>
+
+
+
+
+
+
+
+      </div>
+
+
+
+      <!-- <div class="message">
+        <label for="message"></label>
+        <textarea name="message" placeholder="I'd like to chat about" id="message_input" cols="30" rows="5" required></textarea>
+      </div> -->
+
+      <div class="submit">
+        <input type="submit" value="{{'ADD' | translate}}" id="form_button" />
+      </div>
+    </form><!-- // End form -->
+  </div><!-- // End #container -->
+</ion-content>

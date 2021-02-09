@@ -1,0 +1,47 @@
+{
+    "DARKMODE": "Toggle Dark Mode",
+    "LANGUAGE":"Select Language",
+    "CONFIG":"Config",
+    "LOGOUT":"Logout",
+    "HOME":"Home",
+    "TITTLE":"Tittle",
+    "DESCRIPTION":"Description",
+    "GPS":"Click to get location",
+    "ADD":"Add",
+    "HELP":"Help",
+    "ADMIN":"Admin",
+    "USER":"User",
+    "DEVELOPER":"Developer",
+    "CONNECT":"Connect",
+    "MAIL":"Mail",
+    "TASK":"Task",
+    "REGISTER":"Register",
+    "LIST":"List",
+    "ADDT":"Add",
+    "PROFILET":"Profile",
+    "ADMINS":"YOU ARE THE BOSS",
+    "ADRESS":"Adress",
+    "PHONE":"Phone",
+    "CREATE":"Create a place",
+    "CREA":"Create",
+    "NAME":"Name",
+    "CAMERA":"Camera",
+    "LOCATION":"Location",
+    "GALLERY":"Gallery",
+    "SEARCHPLACE":"Search a place",
+    "GOOGLE":"Login with Google ",
+    "FACEBOOK":"Login with Facebook",
+    "PASS":"Password",
+    "FORGOTPASS":"Forgotten password",
+    "DISFRUTE":"Disfrute your food"
+    
+    
+
+    
+    
+
+
+    
+
+    
+    }

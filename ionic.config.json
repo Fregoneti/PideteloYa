@@ -1,5 +1,7 @@
 {
   "name": "PideloYa",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

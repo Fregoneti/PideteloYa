@@ -1,0 +1,50 @@
+<img class="center" style="height: 40%; width: 40%; text-align: center;"
+  src="https://i.ibb.co/0jSmXgb/Whats-App-Image-2021-01-24-at-22-05-56.jpg">
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="height: 80%; width: 80%;" >
+
+
+  <ion-item color="success" >
+    <ion-label (click)="this.login()">
+      <h2>Google</h2>
+      <ion-note color="dark">{{'GOOGLE' | translate}}</ion-note>
+    </ion-label>
+    <ion-icon name="logo-google"></ion-icon>
+  </ion-item>
+  <hr />
+
+  <ion-item color="success" style="margin-bottom: 60px;">
+    <ion-label>
+      <h2>Facebook</h2>
+      <ion-note color="dark">{{'FACEBOOK' | translate}}</ion-note>
+    </ion-label>
+    <ion-icon name="logo-facebook"></ion-icon>
+  </ion-item>
+
+  <div class="group">
+    <input type="email" class="form-control" formControlName="email"><span class="highlight"></span><span
+      class="bar"></span>
+    <label>Email</label>
+  </div>
+
+  <div class="group">
+    <input type="password" class="form-control" formControlName="pass"><span class="highlight"></span><span
+      class="bar"></span>
+    <label>{{'PASS' | translate}}</label>
+  </div>
+  <ion-label style="text-align: left;">
+    {{'FORGOTPASS' | translate}}
+  </ion-label>
+
+  <button type="submit" class="button buttonBlue">Login
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+
+
+
+  <hr style="color: #0056b2;" />
+
+</form>
+<footer>
+  <p>Disfruta de tu comida
+</footer>

@@ -1,0 +1,33 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-title style="font-family: 'asap';">{{'CONFIG' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="success">
+
+  <ion-list color="success">
+    <ion-item color="success">
+      <ion-icon slot="start" name="moon"> </ion-icon>
+      <ion-label style="font-family: 'asap';">{{'DARKMODE' | translate}}</ion-label> 
+    
+      <ion-toggle slot="end"[ngModel]="darkMode" (ionChange)="cambiodark()"></ion-toggle>
+    </ion-item>
+
+
+  <ion-item color="success">
+   <ion-icon name="language-outline"></ion-icon>
+    <!-- <ion-label>Cambiar idioma</ion-label> -->
+    <ion-label style="font-family: 'asap';">{{'LANGUAGE' | translate}}</ion-label> 
+   <ion-select [(ngModel)]="language" [value]="language" (ionChange)="changeLanguage()">
+     
+     <ion-select-option value="en">English</ion-select-option>
+     <ion-select-option value="es">Spanish</ion-select-option>
+   </ion-select>
+ </ion-item>
+   
+
+ </ion-list>
+
+
+</ion-content>

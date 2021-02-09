@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "536439917980",
+    "project_id": "pideteloya-12ca3",
+    "storage_bucket": "pideteloya-12ca3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536439917980:android:0ceaddccf570354d780c59",
+        "android_client_info": {
+          "package_name": "io.ionic.starter.Pidetelo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "536439917980-hkavqd50mfer1qvone527t34v6ougvri.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter.Pidetelo",
+            "certificate_hash": "cef450e4415cea301b024ccefd59249c89420936"
+          }
+        },
+        {
+          "client_id": "536439917980-a25b5ao8792k8l4ctaf2gsuchr04g2v9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7YPZElLAFLI9d4h3cLYF36ZGLsBsHJAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "536439917980-a25b5ao8792k8l4ctaf2gsuchr04g2v9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

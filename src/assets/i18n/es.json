@@ -1,0 +1,41 @@
+{
+    "DARKMODE": "Cambiar Modo Oscuro",
+    "LANGUAGE":"Cambiar de idioma",
+    "CONFIG":"Configuración",
+    "LOGOUT":"Cerrar sesión",
+    "HOME":"Inicio",
+    "TITTLE":"Título",
+    "DESCRIPTION":"Descripción",
+    "GPS":"Pulsa para obtener ubicación",
+    "ADD":"Añadir",
+    "HELP":"Ayuda",
+    "PHOTO":"Foto",
+    "USER":"Usuario",
+    "Admin":"Administrar",
+    "CONNECT":"Conéctate",
+    "MAIL":"Correo",
+    "REGISTER":"Registrar",
+    "SEARCH":"Buscar notas",
+    "LIST":"Listar",
+    "PHONE":"Teléfono",
+    "PROFILET":"Perfil",
+    "ADRESS":"Dirección",
+    "ADMINS":"Eres el dios todopoderoso",
+    "CREATE":"Crea un lugar",
+    "CREA":"Crea",
+    "NAME":"Nombre",
+    "CAMERA":"Cámara",
+    "LOCATION":"Ubicación",
+    "GALLERY":"Galería",
+    "SEARCHPLACE":"Busca un lugar",
+    "GOOGLE":"Continua con Google ",
+    "FACEBOOK":"Continua con Facebook",
+    "PASS":"Contraseña",
+    "FORGOTPASS":"He olvidado la contraseña",    
+    "DISFRUTE":"Disfruta tu comida"
+    
+
+
+
+    
+    }

@@ -1,8 +1,27 @@
+// @import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+
+
+// @font-face {
+//   font-family: 'notosans';
+//   src: url('../assets/fonts/notosans.woff2') format('woff2');
+// }
+
+@font-face {
+  font-family: 'asap';
+  src: url('../assets/fonts/asap.woff2') format('woff2');
+}
+
+
+
+
+
 ion-menu ion-content {
+  font-family: 'asap';
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
 ion-menu.md ion-content {
+  font-family: 'asap';
   --padding-start: 8px;
   --padding-end: 8px;
   --padding-top: 20px;
@@ -10,26 +29,31 @@ ion-menu.md ion-content {
 }
 
 ion-menu.md ion-list {
+  font-family: 'asap';
   padding: 20px 0;
 }
 
 ion-menu.md ion-note {
   margin-bottom: 30px;
+  font-family: 'asap';
 }
 
 ion-menu.md ion-list-header,
 ion-menu.md ion-note {
   padding-left: 10px;
+  font-family: 'asap';
 }
 
 ion-menu.md ion-list#inbox-list {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+  font-family: 'asap';
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
   font-size: 22px;
+  font-family: 'asap';
   font-weight: 600;
-
+font-family: 'asap';
   min-height: 20px;
 }
 
@@ -39,7 +63,7 @@ ion-menu.md ion-list#labels-list ion-list-header {
   margin-bottom: 18px;
 
   color: #757575;
-
+  font-family: 'asap';
   min-height: 26px;
 }
 
@@ -47,22 +71,27 @@ ion-menu.md ion-item {
   --padding-start: 10px;
   --padding-end: 10px;
   border-radius: 4px;
+  font-family: 'asap';
 }
 
 ion-menu.md ion-item.selected {
   --background: rgba(var(--ion-color-primary-rgb), 0.14);
+  font-family: 'asap';
 }
 
 ion-menu.md ion-item.selected ion-icon {
   color: var(--ion-color-primary);
+  font-family: 'asap';
 }
 
 ion-menu.md ion-item ion-icon {
   color: #616e7e;
+  font-family: 'asap';
 }
 
 ion-menu.md ion-item ion-label {
   font-weight: 500;
+  font-family: 'asap';
 }
 
 ion-menu.ios ion-content {
@@ -108,12 +137,36 @@ ion-menu.ios ion-note {
 }
 
 ion-note {
+  font-family: 'asap';
   display: inline-block;
   font-size: 16px;
 
-  color: var(--ion-color-medium-shade);
+  color: #73849a;
 }
 
 ion-item.selected {
-  --color: var(--ion-color-primary);
+  --color: #d8c292;
+  font-family: 'asap';
+}
+
+// ion-split-pane{
+//   background-image:url("https://i.ibb.co/WBBXhvf/gris.jpg")
+// } 
+ 
+
+ion-menu {
+  --ion-background-color: #F0C65A;
+  --ion-text-color: #ffffff;
+  font-family: 'asap';
+
+  ion-toolbar {
+    --background: var(--ion-color-primary);
+    font-family: 'asap';
+  }
+
+  ion-list {/* optional, but it needs when you use gradient as a background color.*/
+    background: transparent;
+    font-family: 'asap';
+  }
+
 }

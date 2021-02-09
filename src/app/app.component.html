@@ -1,26 +1,90 @@
 <ion-app>
-  <ion-split-pane contentId="main-content">
-    <ion-menu contentId="main-content" type="overlay">
+  <ion-split-pane contentId="main-content"  >
+    <ion-menu contentId="main-content" type="overlay" style="background-color: transparent!important;" color="success">
       <ion-content>
-        <ion-list id="inbox-list">
-          <ion-list-header>Inbox</ion-list-header>
-          <ion-note>hi@ionicframework.com</ion-note>
+        <img class="center" style="height: auto; width: auto; text-align: center;"
+          src="https://i.ibb.co/0jSmXgb/Whats-App-Image-2021-01-24-at-22-05-56.jpg">
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-              <ion-label>{{ p.title }}</ion-label>
+        <ion-list id="inbox-list" >
+          <ion-list-header style="color: #654321;">PideteloYa!!!</ion-list-header>
+          <ion-note style="color: #654321;" >hi@ionicframework.com</ion-note>
+          
+          <ion-avatar style="float: right;" slot="start">
+            <img [src]="user.avatar">
+          </ion-avatar>
+
+          <ion-note style="color: #654321;">{{user.email}}</ion-note>
+          
+
+          <ion-menu-toggle auto-hide="false">
+            <!-- <ion-item (click)="login()"  lines="none"> -->
+
+
+
+            <ion-item [routerLink]="['/home']" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon style="margin-right: 5px;" name="home-outline"></ion-icon>
+              <ion-label   color="medium"><b>{{'HOME' | translate}}</b></ion-label>
             </ion-item>
+
+            <ion-item [routerLink]="['/config']" routerDirection="root" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon style="margin-right: 5px;" name="construct-outline"></ion-icon>
+              <ion-label color="medium"><b>{{'CONFIG' | translate}}</b></ion-label>
+            </ion-item>
+
+            <ion-item routerDirection="root" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon style="margin-right: 5px;" name="information-circle-outline"></ion-icon>
+              <ion-label color="medium"><b>{{'HELP' | translate}}</b></ion-label>
+            </ion-item>
+
+            <ion-item [routerLink]="['/admin']" routerDirection="root" *ngIf="isAdmin" lines="none" detail="false"
+              [class.selected]="selectedIndex == i">
+              <ion-icon style="margin-right: 5px;" name="people-circle-outline"></ion-icon>
+              <ion-label color="medium"><b>{{'ADMIN' | translate}}</b></ion-label>
+            </ion-item>
+
+            <!-- <ion-item [routerLink]="['/admin']" routerDirection="root"  lines="none" detail="false"
+            [class.selected]="selectedIndex == i">
+            <ion-icon style="margin-right: 5px;" name="people-circle-outline"></ion-icon>
+            <ion-label color="medium"><b>{{'ADMIN' | translate}}</b></ion-label>
+          </ion-item> -->
+
+            <ion-footer>
+
+              <ion-item *ngIf="!isAuth()" [routerLink]="['/login']" lines="none">
+                <ion-icon style="margin-right: 5px;" name="log-in-outline"></ion-icon>
+                <ion-label color="medium"><b>{{'CONNECT' | translate}} </b></ion-label>
+              </ion-item>
+
+
+              <ion-item *ngIf="!isAuth()" [routerLink]="['/register']" lines="none">
+                <ion-icon style="margin-right: 5px;" name="radio-button-off-outline"></ion-icon>
+                <ion-label color="medium"><b>{{'REGISTER' | translate}}</b></ion-label>
+              </ion-item>
+              <ion-item lines="none" style="background-color: #D9A148;">
+
+                <!-- <ion-item [routerLink]="['/register']" lines="none">
+                  <ion-icon style="margin-right: 5px;" name="radio-button-off-outline"></ion-icon>
+                  <ion-label color="medium"><b>{{'REGISTER' | translate}}</b></ion-label>
+                </ion-item>
+                <ion-item lines="none" style="background-color: #D9A148;"> -->
+
+                <ion-label *ngIf="isAuth()">
+                  <ion-button  color="medium" (click)="logOut()">
+                    <ion-icon style="margin-right: 5px;" slot="start" name="log-out" style="zoom:1.3"></ion-icon>
+                    <span style="margin-left:16px" ><b>{{'LOGOUT' | translate}}</b></span>
+                  </ion-button>
+                </ion-label>
+<!-- 
+                <ion-label >
+                  <ion-button  color="medium" (click)="logOut()">
+                    <ion-icon style="margin-right: 5px;" slot="start" name="log-out" style="zoom:1.3"></ion-icon>
+                    <span style="margin-left:16px" ><b>{{'LOGOUT' | translate}}</b></span>
+                  </ion-button>
+                </ion-label> -->
+
+              </ion-item>
+            </ion-footer>
           </ion-menu-toggle>
-        </ion-list>
-
-        <ion-list id="labels-list">
-          <ion-list-header>Labels</ion-list-header>
-
-          <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
-            <ion-label>{{ label }}</ion-label>
-          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>

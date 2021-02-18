@@ -39,7 +39,7 @@ leafletMap() {
     attribution: 'Carlos Aguilar Alférez',
   }).addTo(this.map);
 
-  
+
   
   Leaflet.marker([this.lugar.latitude, this.lugar.longitude]).addTo(this.map).bindPopup(this.lugar.name);
 

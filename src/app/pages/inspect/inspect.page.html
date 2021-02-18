@@ -1,13 +1,5 @@
 <ion-content>
   
-  <!-- <ion-label>{{lugar.name}}</ion-label>
- 
-  <ion-label>Direccion: {{lugar.adress}}</ion-label>
-  <ion-label>Teléfono: {{lugar.n_phone}}</ion-label>
-  <ion-button>Como llegar</ion-button>
-  <ion-button>LLamar </ion-button> -->
-
-
   <div class="page" style="height: auto; width: 100%;">
     <div class="container">
       <div class="left">
@@ -44,18 +36,20 @@
         <div class="form">
           <label for="email">Teléfono</label>
           <ion-label>{{lugar.n_phone}}</ion-label>
+          
           <!-- <label for="password">Password</label>
           <input type="password" id="password"> -->
 
         
          <!-- <input type="submit" id="submit" value="Submit"> -->
-        </div>
+        </div><img  style="height: 100%; width: 100%; text-align: center;padding-left: 140px;padding-top: 160px;" src="{{lugar.photo}}">
       </div>
     </div>
+    
     <ion-button color="secondary" (click)="this.map(lugar)" type="submit" id="submit" value="Submit"><ion-icon name="navigate-circle-outline"></ion-icon>Como llegar</ion-button>
     <!-- <ion-button [routerLink]="['/comollegar']" type="submit" id="submit" value="Submit">Como llegar</ion-button> -->
-    <ion-button color="secondary" type="submit" id="submit" value="Submit"><ion-icon name="call-outline"></ion-icon>LLamar </ion-button>
-    <ion-button color="secondary" (click)="this.comentarios(lugar)" type="submit" id="submit" value="Submit"> <ion-icon name="chatbubbles-outline"></ion-icon>Comentarios </ion-button>
+    <ion-button (click)="this.call()" color="secondary" type="submit" id="submit" value="Submit"><ion-icon name="call-outline"></ion-icon>LLamar </ion-button>
+    <ion-button color="secondary" (click)="this.comentarios(this.lugar)" type="submit" id="submit" value="Submit"> <ion-icon name="chatbubbles-outline"></ion-icon>Comentarios </ion-button>
   </div>
     
 

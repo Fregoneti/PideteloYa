@@ -21,9 +21,8 @@
   [animated]="true" 
   debounce="500"
   placeholder="{{'SEARCHPLACE' | translate}}"
-  [(ngModel)]="miBuscador"
   (ionInput)="getNotaSearchBar($event)"
-  (ionCancel)="onCancel($event)">
+ >
 </ion-searchbar>
 
    <ion-list color="primary">

@@ -7,13 +7,17 @@
 
         <ion-list id="inbox-list" >
           <ion-list-header style="color: #654321;">PideteloYa!!!</ion-list-header>
-          <ion-note style="color: #654321;" >hi@ionicframework.com</ion-note>
+          <ion-note  *ngIf="isAuth()" style="color: #654321;margin-top: 20px;">{{this.authS.user.email}}</ion-note>
           
           <ion-avatar style="float: right;" slot="start">
-            <img [src]="user.avatar">
+            <img (click)="camara()" src="this.authS.user.avatar">
+            
+            <!-- <img (click)="camara()" src="tempImg"> -->
+            
           </ion-avatar>
 
-          <ion-note style="color: #654321;">{{user.email}}</ion-note>
+          <!-- <ion-note style="color: #654321;">{{user.email}}</ion-note> -->
+          
           
 
           <ion-menu-toggle auto-hide="false">
@@ -21,27 +25,29 @@
 
 
 
-            <ion-item [routerLink]="['/home']" lines="none" detail="false" [class.selected]="selectedIndex == i">
+            <ion-item [routerLink]="['/home']" lines="none" detail="false" >
               <ion-icon style="margin-right: 5px;" name="home-outline"></ion-icon>
               <ion-label   color="medium"><b>{{'HOME' | translate}}</b></ion-label>
             </ion-item>
 
-            <ion-item [routerLink]="['/config']" routerDirection="root" lines="none" detail="false" [class.selected]="selectedIndex == i">
+            <ion-item [routerLink]="['/config']" routerDirection="root" lines="none" detail="false">
               <ion-icon style="margin-right: 5px;" name="construct-outline"></ion-icon>
               <ion-label color="medium"><b>{{'CONFIG' | translate}}</b></ion-label>
             </ion-item>
 
-            <ion-item routerDirection="root" lines="none" detail="false" [class.selected]="selectedIndex == i">
+            <ion-item routerDirection="root" lines="none" detail="false" >
               <ion-icon style="margin-right: 5px;" name="information-circle-outline"></ion-icon>
               <ion-label color="medium"><b>{{'HELP' | translate}}</b></ion-label>
             </ion-item>
 
-            <ion-item [routerLink]="['/admin']" routerDirection="root" *ngIf="isAdmin" lines="none" detail="false"
-              [class.selected]="selectedIndex == i">
+            <ion-item [routerLink]="['/admin']" routerDirection="root" *ngIf="isAdminAuth()" lines="none" detail="false"
+              >
               <ion-icon style="margin-right: 5px;" name="people-circle-outline"></ion-icon>
               <ion-label color="medium"><b>{{'ADMIN' | translate}}</b></ion-label>
             </ion-item>
 
+
+            
             <!-- <ion-item [routerLink]="['/admin']" routerDirection="root"  lines="none" detail="false"
             [class.selected]="selectedIndex == i">
             <ion-icon style="margin-right: 5px;" name="people-circle-outline"></ion-icon>
@@ -74,8 +80,8 @@
                     <span style="margin-left:16px" ><b>{{'LOGOUT' | translate}}</b></span>
                   </ion-button>
                 </ion-label>
-<!-- 
-                <ion-label >
+
+                <!-- <ion-label >
                   <ion-button  color="medium" (click)="logOut()">
                     <ion-icon style="margin-right: 5px;" slot="start" name="log-out" style="zoom:1.3"></ion-icon>
                     <span style="margin-left:16px" ><b>{{'LOGOUT' | translate}}</b></span>

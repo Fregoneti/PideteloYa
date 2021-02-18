@@ -15,6 +15,7 @@ export const environment = {
     measurementId: "G-GD91C6K0W4"
   },
 
+  comentariosCollection:'Comentarios', //Subcolección de comentarios
   lugaresCollection:'Lugares', //Colección de lugares
   currentLanguages:['es','en'], //idiomas disponibles de la aplicación
   defaultLanguage:"en",  //idioma por defecto
@@ -29,3 +30,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+//https://pideteloya-12ca3.firebaseapp.com/__/auth/handler

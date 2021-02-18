@@ -19,6 +19,7 @@ export class EditPlacePage implements OnInit {
   constructor(
     private formBuilder:FormBuilder,
     private lugarS:LugarService,
+  
     public loadingController: LoadingController,
     public toastController: ToastController,
     private modalController:ModalController,) {
@@ -80,4 +81,5 @@ export class EditPlacePage implements OnInit {
     });
     toast.present();
   }
+
 }

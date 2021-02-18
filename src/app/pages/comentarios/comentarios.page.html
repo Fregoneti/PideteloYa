@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="admin"></ion-back-button>
+      <ion-back-button ></ion-back-button>
     </ion-buttons>
     <ion-title>
       Comentarios
@@ -13,7 +13,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab (click)="this.createComentario(this.lugar)" vertical="bottom" horizontal="end" slot="fixed" >
     <ion-fab-button color="success">
       <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
     </ion-fab-button>
@@ -24,13 +24,14 @@
   </ion-refresher>
 
   <ion-list color="primary">
-    <ion-item-sliding *ngFor="let lugar of this.listaLugaresBuscar;let i=index">
+    <ion-item-sliding *ngFor="let comentario of this.listaComentarios;let i=index">
 
       <ion-item>
         <ion-label>
-          <h1>{{cuenta.name}} </h1>
+          <!-- <h1>{{cuenta.name}} </h1> -->
           <br>
           <h2>{{lugar.comentarios}}</h2>
+          <!-- <h2>{{comentarios.name}}</h2> -->
           <br>
         </ion-label>
       </ion-item>

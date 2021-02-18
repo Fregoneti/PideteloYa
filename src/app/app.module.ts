@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthService } from './services/auth.service';
 import { LugarService } from './services/lugar.service';
+import { AngularFireStorage } from 'angularfire2/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http:HttpClient){
     SplashScreen,
     Camera,
     CallNumber,
+    AngularFireStorage,
     NativeGeocoder,
     LugarService,
     NativeStorage,

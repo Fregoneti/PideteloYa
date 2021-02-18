@@ -55,7 +55,7 @@ export class InspectPage implements OnInit {
       component: ComentariosPage,
       cssClass: 'my-custom-class',
       componentProps:{
-        lugar:lugar
+         lugar:lugar
       }
     });
 

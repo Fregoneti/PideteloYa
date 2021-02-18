@@ -4,8 +4,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { cuenta } from '../model/cuenta';
 import * as firebase from 'firebase';
-import { environment } from 'src/environments/environment';
-import { AdminPage } from '../admin/tabs/admin.page';
+
 
 
 @Injectable({
@@ -14,13 +13,14 @@ import { AdminPage } from '../admin/tabs/admin.page';
 export class AuthService implements CanActivate {
 
   public isAdmin:boolean;
+  provider = new firebase.auth.FacebookAuthProvider();
 
 
   public user: cuenta = {
     token: -1,
     name: '',
     avatar: '',
-    email: ''
+    email: '',
   }
 
 
@@ -28,8 +28,7 @@ export class AuthService implements CanActivate {
 
   constructor(private storage: NativeStorage,
     private google: GooglePlus,
-
-
+    
     private router: Router) { }
 
 
@@ -65,6 +64,8 @@ export class AuthService implements CanActivate {
     await this.storage.setItem("user", this.user);
   }
 
+  
+
   public async login() {
     try {
       let u = await this.google.login({})
@@ -77,6 +78,7 @@ export class AuthService implements CanActivate {
           email: u['email']
         }
         console.log(this.user);
+        this.router.navigate(["home"]);
       }
     } catch (err) {
       this.user = {
@@ -101,7 +103,7 @@ export class AuthService implements CanActivate {
   //LOGIN NORMAL
   isAuthenticated() {
     const user = firebase.auth().currentUser;
-    if (user) {
+    if (user || this.user.token != -1) {
       return true;
     } else {
       return false;
@@ -111,14 +113,16 @@ export class AuthService implements CanActivate {
   isAdminAuth() {
     
    if(this.isAdmin==true){
-     console.log("ES admin auth");
+    // console.log("ES admin auth");
      
       return true;
    }else{
-    console.log("No es admin auth");
+   // console.log("No es admin auth");
      return false;
    }
   }
+
+  
 
 
 
@@ -138,8 +142,12 @@ export class AuthService implements CanActivate {
     this.isAdmin=false;
     firebase.auth().signInWithEmailAndPassword(userdata.email, userdata.password)
       .then(response => {
+
         console.log(response);
+        this.user.email=userdata.email;
+        console.log("El correo en inicio sesion es="+this.user.email);
         
+
         if(userdata.email=="admin@admin.es"&&userdata.password=="admin123"){
           console.log("SOY ADMIN JEJEJEEJJEJEJE");
           
@@ -152,5 +160,33 @@ export class AuthService implements CanActivate {
       )
   }
 
+  // loginfacebook(){
+  // firebase
+  // .auth()
+  // .signInWithPopup(this.provider)
+  // .then((result) => {
+  //   /** @type {firebase.auth.OAuthCredential} */
+  //   var credential = result.credential;
+
+  //   // The signed-in user info.
+  //   var user = result.user;
+
+  //   // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+  //   var accessToken = credential.accessToken;
+
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   // Handle Errors here.
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // The email of the user's account used.
+  //   var email = error.email;
+  //   // The firebase.auth.AuthCredential type that was used.
+  //   var credential = error.credential;
+
+  //   // ...
+  // });
+  // }
   
 }

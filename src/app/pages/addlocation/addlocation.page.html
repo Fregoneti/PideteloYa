@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button fill="clear" slot="start" (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>Coger posición</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <div id='mapId' style="width: 200%; height:20%;"></div>
+    <ion-item style="cursor: pointer" (click)="locatePosition()">
+        <ion-button fill="clear">
+            <ion-icon slot="start" name="map"></ion-icon>
+            Localizar posición
+        </ion-button>
+    </ion-item>
+<ion-item>
+    <ion-icon slot="start" name="locate"></ion-icon>
+    <ion-label position="stacked">Address</ion-label>
+<ion-textarea type="text" style="margin-top:20px;">{{this.coor[0]}},{{this.coor[1]}}</ion-textarea>
+  </ion-item>
+<ion-button shape="round" expand="block" (click)="confirmPickupLocation()">Confirmar posición</ion-button>
+</ion-content>

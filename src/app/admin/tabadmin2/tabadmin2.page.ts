@@ -43,11 +43,11 @@ export class Tabadmin2Page implements OnInit {
           //Ya ha llegado del servidor
           this.listaLugares=[];
           info.forEach((doc)=>{
-            let nota={
+            let lugar={
               id:doc.id,
               ...doc.data()
             }
-            this.listaLugares.push(nota);
+            this.listaLugares.push(lugar);
           });
           //Ocultar el loading
           this.listaLugaresBuscar=this.listaLugares;             

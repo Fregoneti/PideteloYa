@@ -4,6 +4,7 @@ import * as Leaflet from 'leaflet';
 import {icon, Marker} from 'leaflet';
 import "leaflet/dist/images/marker-shadow.png";
 import "leaflet/dist/images/marker-icon-2x.png";
+import { ModalController } from '@ionic/angular';
 
 
 
@@ -25,7 +26,7 @@ map: Leaflet.Map;
 
 
 
-constructor() {
+constructor(private modalController:ModalController) {
 
  }
 
@@ -48,6 +49,7 @@ leafletMap() {
 ngOnDestroy() {
   this.map.remove();
 }
+closeModal() { this.modalController.dismiss(); }
 }
 
 

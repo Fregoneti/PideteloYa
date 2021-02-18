@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { comentarios } from 'src/app/model/comentarios';
 import { Lugar } from 'src/app/model/lugar';
-import { ComentariosService } from 'src/app/services/comentarios.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { LugarService } from 'src/app/services/lugar.service';
 
 @Component({
@@ -14,77 +14,84 @@ import { LugarService } from 'src/app/services/lugar.service';
 })
 export class CreateComentarioPage implements OnInit {
 
-  @Input('lugar') lugar:Lugar;
-  public comentarios:FormGroup;
+  @Input('lugar') lugar: Lugar;
+  public comentarios: FormGroup;
+  private user:any;
+  
 
- 
   constructor(
-    private formBuilder:FormBuilder,
-    private comentarioS:ComentariosService,
-    private router:Router,
+    private formBuilder: FormBuilder,
+    private router: Router,
     private modalController:ModalController,
     public loadingController: LoadingController,
     public toastController: ToastController,
-    public lugars:LugarService) {
-      
-    this.comentarios=this.formBuilder.group({
-      name:['',Validators.required],
-      description:[''],
-    
+    public lugars: LugarService,
+    private authS:AuthService) {
+
+    this.comentarios = this.formBuilder.group({
+      // name:['',Validators.required],
+      description: [''],
+
     })
-     }
+    this.user=this.authS.user;
+  }
 
   ngOnInit() {
-    console.log(this.lugar.id)    
+    console.log(this.lugar.id)
   }
 
 
 
-  public async sendForm(){
+  public async sendForm() {
     await this.presentLoading();
-    
-    let data:comentarios={
-      description:this.comentarios.get('description').value,   
-      
+
+    let data: comentarios = {
+      description: this.comentarios.get('description').value,
+      email:this.user.email
+
     }
     console.log(data.description);
-    
 
-    this.lugars.agregaComentario(this.lugar.id,data)
-    .then((respuesta)=>{
-      this.comentarios.setValue({
-        description:''
 
-                
+    this.lugars.agregaComentario(this.lugar.id, data)
+      .then((respuesta) => {
+        this.comentarios.setValue({
+          description: '',
+        //  email:''
+
+
+        })
+        this.loadingController.dismiss();
+        this.closeModal();
+        this.presentToast("Comentario creado", "success");
       })
-      this.loadingController.dismiss();
-      this.router.navigate(['/']);
-      this.presentToast("Lugar guardado","success");
-    })
-    .catch((err)=>{
-      this.loadingController.dismiss();
-      this.presentToast("Error guardando lugar","danger");
-      console.log(err);
-    })
+      .catch((err) => {
+        this.loadingController.dismiss();
+        this.presentToast("Error creando el comentario", "danger");
+        console.log(err);
+      })
+
+
   }
 
   async presentLoading() {
     const loading = await this.loadingController.create({
       cssClass: 'my-custom-class',
       message: '',
-      spinner:'crescent'
+      spinner: 'crescent'
     });
     await loading.present();
   }
-  async presentToast(msg:string,col:string) {
+  async presentToast(msg: string, col: string) {
     const toast = await this.toastController.create({
       message: msg,
-      color:col,
+      color: col,
       duration: 2000,
-      position:"top"
+      position: "top"
     });
     toast.present();
   }
-
+  
+  closeModal() { this.modalController.dismiss(); }
 
 }

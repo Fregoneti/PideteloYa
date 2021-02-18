@@ -25,6 +25,7 @@ export class Tabadmin1Page implements OnInit {
   image:any;
   fileRef: any;
   uploadProgress: any;
+  photoCharged:boolean=false;
 
 
 
@@ -119,6 +120,7 @@ export class Tabadmin1Page implements OnInit {
       this.tempImg = base64Image;
       const id=Math.random().toString(36).substring(2);
       this.saveImageFirebaseStorage("placesImage/",id,this.tempImg);
+      this.photoCharged=true;
 
      
       console.log("Guardada bien");
@@ -136,6 +138,7 @@ export class Tabadmin1Page implements OnInit {
         this.tempImg = base64Image;
         const id=Math.random().toString(36).substring(2);
         this.saveImageFirebaseStorage("placesImage/",id,this.tempImg);
+        this.photoCharged=true;
 
 
 
@@ -211,5 +214,7 @@ saveImageFirebaseStorage(filepaht:string,name_image:string,imagen:string){
   const blob = new Blob(byteArrays, {type: contentType});
   return blob;
 }
+
+
 
 }

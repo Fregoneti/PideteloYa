@@ -55,6 +55,8 @@ export class HomePage implements OnInit {
     }
   }
 
+
+
   public async inspectPlace(lugar:Lugar){
     const modal = await this.modalController.create({
       component: InspectPage,

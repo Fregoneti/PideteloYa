@@ -10,7 +10,7 @@
           <ion-note  *ngIf="isAuth()" style="color: #654321;margin-top: 20px;">{{this.authS.user.email}}</ion-note>
           
           <ion-avatar style="float: right;" slot="start">
-            <img (click)="camara()" src="this.authS.user.avatar">
+            <img (click)="camara()" [src]="this.authS.user.avatar">
             
             <!-- <img (click)="camara()" src="tempImg"> -->
             

@@ -37,11 +37,13 @@
       <ion-item (click)="this.inspectPlace(lugar)" color="tertiary">
 
         <ion-label>
-          <h1><b>{{lugar.name}}</b> </h1>
+          <img style="text-align: right;height: 20%;width: 20% ;float: right;" [src]="this.lugar.photo">
+          <h1><b>{{lugar.name}}</b> </h1> 
           <br>
           <h2 style="font-family: 'asap';"><b>{{'ADRESS' | translate}}:</b> {{lugar.adress}}</h2>
           <br>
           <h2 style="font-family: 'asap';"><b>{{'PHONE' | translate}}:</b> {{lugar.n_phone}}</h2>
+          
         </ion-label>
 
       </ion-item>

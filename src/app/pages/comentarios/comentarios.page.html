@@ -1,9 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="secondary">
-    <ion-buttons slot="start">
-      <ion-back-button ></ion-back-button>
-    </ion-buttons>
+    
     <ion-title>
+      <ion-icon (click)="this.closeModal()" name="arrow-back-outline"></ion-icon>
       Comentarios
     </ion-title>
 
@@ -13,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <ion-fab (click)="this.createComentario(this.lugar)" vertical="bottom" horizontal="end" slot="fixed" >
+  <ion-fab *ngIf="isAuth()" (click)="this.createComentario(this.lugar)" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button color="success">
       <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
     </ion-fab-button>
@@ -28,10 +27,10 @@
 
       <ion-item>
         <ion-label>
-          <!-- <h1>{{cuenta.name}} </h1> -->
+          <h1 style="font-size: 20px;"><b>{{comentario.email}}</b> </h1>
           <br>
-          <h2>{{lugar.comentarios}}</h2>
-          <!-- <h2>{{comentarios.name}}</h2> -->
+          <h2>{{comentario.description}}</h2>
+
           <br>
         </ion-label>
       </ion-item>

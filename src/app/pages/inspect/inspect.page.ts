@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { LocationPage } from 'src/app/pages/location/location.page';
 import { Lugar } from 'src/app/model/lugar';
 import { ComentariosPage } from '../comentarios/comentarios.page';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-inspect',
@@ -13,11 +14,20 @@ import { ComentariosPage } from '../comentarios/comentarios.page';
 export class InspectPage implements OnInit {
 
   @Input('lugar') lugar:Lugar;
+  user:any;
   
   constructor(private callNumber: CallNumber,
-    private modalController:ModalController) { }
+    private modalController:ModalController,
+    private authS:AuthService
+    ) { }
 
   ngOnInit() {
+    this.user=this.authS.user;
+    console.log("Nombre"+ this.user.email);
+    
+     
+    
+    
   }
 
   call(){
@@ -72,6 +82,8 @@ export class InspectPage implements OnInit {
 
     return await modal.present();
   }
+  
+  closeModal() { this.modalController.dismiss(); }
 
 
 

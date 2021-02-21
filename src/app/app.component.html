@@ -6,10 +6,13 @@
           src="https://i.ibb.co/0jSmXgb/Whats-App-Image-2021-01-24-at-22-05-56.jpg">
 
         <ion-list id="inbox-list" >
-          <ion-list-header style="color: #654321;">PideteloYa!!!</ion-list-header>
-          <ion-note  *ngIf="isAuth()" style="color: #654321;margin-top: 20px;">{{this.authS.user.email}}</ion-note>
+          <ion-list-header color="success">PideteloYa!!!</ion-list-header>
+          <ion-note  *ngIf="isAuth()" color="success" style="margin-top: 20px;">{{this.authS.user.email}}</ion-note>
           
-          <ion-avatar style="float: right;" slot="start">
+          <!-- <ion-list-header style="color: #654321;">PideteloYa!!!</ion-list-header>
+          <ion-note  *ngIf="isAuth()" style="color: #654321;margin-top: 20px;">{{this.authS.user.email}}</ion-note>
+           -->
+          <ion-avatar *ngIf="isAuth()" style="float: right;" slot="start">
             <img (click)="camara()" [src]="this.authS.user.avatar">
             
             <!-- <img (click)="camara()" src="tempImg"> -->
@@ -35,7 +38,7 @@
               <ion-label color="medium"><b>{{'CONFIG' | translate}}</b></ion-label>
             </ion-item>
 
-            <ion-item routerDirection="root" lines="none" detail="false" >
+            <ion-item [routerLink]="['/help']" routerDirection="root" lines="none" detail="false" >
               <ion-icon style="margin-right: 5px;" name="information-circle-outline"></ion-icon>
               <ion-label color="medium"><b>{{'HELP' | translate}}</b></ion-label>
             </ion-item>

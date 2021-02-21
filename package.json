@@ -72,6 +72,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "mx.ferreyra.callnumber": "0.0.2",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
@@ -94,7 +95,8 @@
         "WEB_APPLICATION_CLIENT_ID": "717104986671-sscee0pc375neh1n7c1r0e7gf7av7nhq.apps.googleusercontent.com",
         "REVERSED_CLIENT_ID": "com.googleusercontent.apps.717104986671",
         "PLAY_SERVICES_VERSION": "15.0.1"
-      }
+      },
+      "call-number": {}
     },
     "platforms": [
       "browser",

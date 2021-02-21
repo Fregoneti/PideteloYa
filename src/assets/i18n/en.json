@@ -33,7 +33,9 @@
     "FACEBOOK":"Login with Facebook",
     "PASS":"Password",
     "FORGOTPASS":"Forgotten password",
-    "DISFRUTE":"Disfrute your food"
+    "DISFRUTE":"Disfrute your food",
+    "HELPDES":"This is an App created by Carlos Aguilar. Actually is a version 1.0, where is thought to promove  'pedidos', for this time Covid-10, para no formar aglomeraciones and get info about the places where you have a possibility of eat (Actually in Montilla)",
+    "BUTTONMAIL": "Press to write mail to Admin"
     
     
 

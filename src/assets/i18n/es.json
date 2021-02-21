@@ -32,7 +32,9 @@
     "FACEBOOK":"Continua con Facebook",
     "PASS":"Contraseña",
     "FORGOTPASS":"He olvidado la contraseña",    
-    "DISFRUTE":"Disfruta tu comida"
+    "DISFRUTE":"Disfruta tu comida", 
+    "HELPDES":"Esta es una App creada por Carlos Aguilar. Actualmenta es la version 1.0, en donde esta pensada para promover los pedidos, por esta época de Covid-19, para no formar aglomeraciones y poder tener información sobre los lugares donde tienes la posibilidad de comer (Actualmente en Montilla)",
+    "BUTTONMAIL": "Pulse para escribirle un mail al Admin"
     
 
 

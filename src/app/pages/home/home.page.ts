@@ -41,6 +41,8 @@ export class HomePage implements OnInit {
               id:doc.id,
               ...doc.data()
             }
+
+
             this.listaLugares.push(lugar);
           });
           //Ocultar el loading
@@ -55,7 +57,7 @@ export class HomePage implements OnInit {
     }
   }
 
-
+  
 
   public async inspectPlace(lugar:Lugar){
     const modal = await this.modalController.create({

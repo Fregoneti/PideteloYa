@@ -71,6 +71,10 @@ const routes: Routes = [
   {
     path: 'create-comentario',
     loadChildren: () => import('./pages/create-comentario/create-comentario.module').then( m => m.CreateComentarioPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
   }
 ];
 

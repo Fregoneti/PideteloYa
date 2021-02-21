@@ -7,6 +7,7 @@
 
 
     </div>
+    <br>
     <form [formGroup]="lugares" (ngSubmit)="this.sendForm()" action="#" method="post" id="contact_form">
       <div class="name">
         <label for="name"></label>
@@ -28,7 +29,7 @@
       <label for="message"></label>
    
       
-      <div class="submit">
+      <div class="submit" style="float: right; margin-top: 4%; margin-left: 4%;">
         <input type="submit" value="Agregar" id="form_button" />
       </div>
     </form>

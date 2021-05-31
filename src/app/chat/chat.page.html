@@ -1,0 +1,32 @@
+<ion-header color="tertiary">
+  <ion-navbar color="tertiary">
+    <ion-title>
+      Chateando con {{lugar.name}}
+      <ion-input placeholder="¿Quién eres?" [(ngModel)]="email"></ion-input>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content color="secondary" #content padding id="content">
+  <ion-card *ngFor="let message of messages">
+    <ion-card-header>
+      {{message.nombre}} dice:
+    </ion-card-header>
+    <ion-card-content>
+      {{message.mensaje}}
+    </ion-card-content>
+  </ion-card>
+  <div id="content-end"></div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-input placeholder="escribe algo..." [(ngModel)]="message"></ion-input>
+    <ion-buttons end>
+      <button ion-button icon-right (click)="sendMessage()">
+          Enviar
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

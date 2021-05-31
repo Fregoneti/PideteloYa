@@ -4,17 +4,20 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { cuenta } from '../model/cuenta';
 import * as firebase from 'firebase';
-
+import { FCM } from 'plugins/cordova-plugin-fcm-with-dependecy-updated/ionic/ngx/FCM';
+import { CuentatokenService } from './cuentatoken.service';
+//import { HTTP } from '@ionic-native/http/ngx';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements CanActivate {
-
-  public isAdmin:boolean;
+  public push_key = '';
+  public isAdmin: boolean;
   provider = new firebase.auth.FacebookAuthProvider();
-
+  pushKey: any;
+  emailformat:any;
 
   public user: cuenta = {
     token: -1,
@@ -28,7 +31,9 @@ export class AuthService implements CanActivate {
 
   constructor(private storage: NativeStorage,
     private google: GooglePlus,
-    
+    private tokenS:CuentatokenService, 
+    private fcm: FCM,
+    //  private http:HTTP,
     private router: Router) { }
 
 
@@ -64,7 +69,7 @@ export class AuthService implements CanActivate {
     await this.storage.setItem("user", this.user);
   }
 
-  
+
 
   public async login() {
     try {
@@ -77,6 +82,15 @@ export class AuthService implements CanActivate {
           avatar: u['imageUrl'],
           email: u['email']
         }
+        this.fcm.getToken().then(token => {
+            this.pushKey=token;
+//this.emailformat=this.user.email.replace(".","")
+            this.tokenS.agregaCuentaToken({cuenta:this.user.email.replace(".",""),token:this.pushKey});
+        }
+        );
+
+
+        
         console.log(this.user);
         this.router.navigate(["home"]);
       }
@@ -111,18 +125,18 @@ export class AuthService implements CanActivate {
   }
 
   isAdminAuth() {
-    
-   if(this.isAdmin==true){
-    // console.log("ES admin auth");
-     
+
+    if (this.isAdmin == true) {
+      // console.log("ES admin auth");
+
       return true;
-   }else{
-   // console.log("No es admin auth");
-     return false;
-   }
+    } else {
+      // console.log("No es admin auth");
+      return false;
+    }
   }
 
-  
+
 
 
 
@@ -139,19 +153,19 @@ export class AuthService implements CanActivate {
 
 
   inicioSesion(userdata) {
-    this.isAdmin=false;
+    this.isAdmin = false;
     firebase.auth().signInWithEmailAndPassword(userdata.email, userdata.password)
       .then(response => {
 
         console.log(response);
-        this.user.email=userdata.email;
-        console.log("El correo en inicio sesion es="+this.user.email);
-        
+        this.user.email = userdata.email;
+        console.log("El correo en inicio sesion es=" + this.user.email);
 
-        if(userdata.email=="admin@admin.es"&&userdata.password=="admin123"){
+
+        if (userdata.email == "admin@admin.es" && userdata.password == "admin123") {
           console.log("SOY ADMIN JEJEJEEJJEJEJE");
-          
-          this.isAdmin=true;
+
+          this.isAdmin = true;
         }
 
         this.router.navigate(['/home']);
@@ -188,5 +202,5 @@ export class AuthService implements CanActivate {
   //   // ...
   // });
   // }
-  
+
 }

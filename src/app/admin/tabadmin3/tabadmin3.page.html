@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Contactos</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="admin"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="secondary" #content padding id="content">
+   <ion-list color="primary">
+    <ion-item-sliding *ngFor="let email of emails;let i=index" >
+     <ion-item (click)="this.chatUsuario(email)">
+
+        <ion-label><h1 >{{email}} </h1>
+       </ion-label> 
+
+     </ion-item>
+    </ion-item-sliding>
+  </ion-list> 
+</ion-content>
+

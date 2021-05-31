@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthService } from './services/auth.service';
 import { LugarService } from './services/lugar.service';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorage, AngularFireStorageModule } from 'angularfire2/storage';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Camera } from '@ionic-native/camera/ngx';
@@ -23,6 +23,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {LocalNotifications} from '@ionic-native/local-notifications/ngx'
+import { FCM } from 'cordova-plugin-fcm-with-dependecy-updated/ionic/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { CuentatokenService } from './services/cuentatoken.service';
 
 firebase.initializeApp(environment.firebaseConfig);
 
@@ -39,6 +44,7 @@ export function HttpLoaderFactory(http:HttpClient){
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     IonicModule.forRoot(),
     AngularFireAuthModule,
     AppRoutingModule,
@@ -58,8 +64,13 @@ export function HttpLoaderFactory(http:HttpClient){
     AngularFireStorage,
     NativeGeocoder,
     LugarService,
+    SocialSharing,
     NativeStorage,
+    CuentatokenService,
     GooglePlus,
+    HTTP,
+    FCM,
+    LocalNotifications,
     SplashScreen,
     AuthService, 
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

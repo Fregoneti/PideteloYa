@@ -75,6 +75,30 @@ const routes: Routes = [
   {
     path: 'help',
     loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'tabadmin3',
+    loadChildren: () => import('./admin/tabadmin3/tabadmin3.module').then( m => m.Tabadmin3PageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./admin/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'create-request-place',
+    loadChildren: () => import('./pages/create-request-place/create-request-place.module').then( m => m.CreateRequestPlacePageModule)
+  },
+  {
+    path: 'tabadmin4',
+    loadChildren: () => import('./admin/tabadmin4/tabadmin4.module').then( m => m.Tabadmin4PageModule)
+  },
+  {
+    path: 'request-edit-place',
+    loadChildren: () => import('./admin/request-edit-place/request-edit-place.module').then( m => m.RequestEditPlacePageModule)
   }
 ];
 

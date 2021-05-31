@@ -1,0 +1,37 @@
+<ion-content>
+  <div id="container">
+    <h1>&bull;Edita Solicitud lugar &bull;</h1>
+    <div class="underline">
+    </div>
+    <div class="icon_wrapper">
+
+
+    </div>
+    <br>
+    <form [formGroup]="lugares" (ngSubmit)="this.sendForm()" action="#" method="post" id="contact_form">
+      <div class="name">
+        <label for="name"></label>
+        <input type="text" placeholder="Nombre"  formControlName="name" name="name" id="name_input" required>
+      </div>
+
+      <div class="email">
+        <label for="email"></label>
+        <input type="email" placeholder="Teléfono"  formControlName="n_phone" name="n_telefono" id="email_input" required>
+      </div>
+
+      <div class="telephone">
+        <label for="name"></label>
+        <input type="text" placeholder="Dirección"  formControlName="adress" name="adress" id="telephone_input" required>
+      </div>
+
+
+      
+      <label for="message"></label>
+   
+      
+      <div class="submit" style="float: right; margin-top: 4%; margin-left: 4%;">
+        <input type="submit" value="Agregar" id="form_button" />
+      </div>
+    </form>
+  </div>
+</ion-content>

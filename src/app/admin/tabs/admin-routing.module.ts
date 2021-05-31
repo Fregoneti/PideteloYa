@@ -18,6 +18,16 @@ const routes: Routes = [
     path: 'tabadmin2',
     loadChildren: () => import('../tabadmin2/tabadmin2.module').then(m => m.Tabadmin2PageModule)
   },
+  {
+    // path: '/admin/tabadmin1',
+    path: 'tabadmin3',
+    loadChildren: () => import('../tabadmin3/tabadmin3.module').then(m => m.Tabadmin3PageModule)
+  },
+  {
+    // path: '/admin/tabadmin2',
+    path: 'tabadmin4',
+    loadChildren: () => import('../tabadmin4/tabadmin4.module').then(m => m.Tabadmin4PageModule)
+  }
 ];
 
 @NgModule({

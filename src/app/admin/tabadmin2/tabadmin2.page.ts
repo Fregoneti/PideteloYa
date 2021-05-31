@@ -13,7 +13,7 @@ export class Tabadmin2Page implements OnInit {
 
 
  
-  public listaLugares :any[] = Array[20];
+  public listaLugares :any[];
   public listaLugaresBuscar=[];
 
   constructor(private lugaresS:LugarService,

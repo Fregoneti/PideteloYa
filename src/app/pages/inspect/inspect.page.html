@@ -3,6 +3,11 @@
 
   <div class="page" style="height: auto; width: 100%;">
     <ion-icon style="font-size: 40px;" (click)="this.closeModal()" name="arrow-back-outline"></ion-icon>
+    <div style="text-align: right;font-size: 40px; margin-right: 10px;">
+      <ion-icon (click)="this.shareviaWhatsapp()" style="text-align: right;" name="share-social-outline"></ion-icon>
+ 
+    </div>
+   
     <div class="container">
       
       <div class="left">
@@ -53,6 +58,9 @@
     <!-- <ion-button [routerLink]="['/comollegar']" type="submit" id="submit" value="Submit">Como llegar</ion-button> -->
     <ion-button (click)="this.call()" color="secondary" type="submit" id="submit" value="Submit"><ion-icon name="call-outline"></ion-icon>LLamar </ion-button>
     <ion-button color="secondary" (click)="this.comentarios(this.lugar)" type="submit" id="submit" value="Submit"> <ion-icon name="chatbubbles-outline"></ion-icon>Comentarios </ion-button>
+    <!-- <ion-button color="secondary"  (click)="this.pedir(this.lugar)" type="submit" id="submit" value="Submit"> <ion-icon name="chatbubbles-outline"></ion-icon>Pedir </ion-button> -->
+    <ion-button color="secondary" *ngIf="isAuth()" (click)="this.pedir(this.lugar)" type="submit" id="submit" value="Submit"> <ion-icon name="chatbubbles-outline"></ion-icon>Pedir </ion-button>
+ 
   </div>
     
 

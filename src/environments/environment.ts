@@ -14,14 +14,28 @@ export const environment = {
     appId: "1:536439917980:web:1f4318aff1731cbb780c59",
     measurementId: "G-GD91C6K0W4"
   },
-
+  userCollection:'User', //Subcolección de comentarios
   comentariosCollection:'Comentarios', //Subcolección de comentarios
+  solicitudesCollection:'Solicitudes', //Colección de comentarios
   lugaresCollection:'Lugares', //Colección de lugares
   currentLanguages:['es','en'], //idiomas disponibles de la aplicación
   defaultLanguage:"en",  //idioma por defecto
   hackuser:"",  //super usuario
   hackpass:"",  //super password
 };
+
+export const snapshotToArray=snapshot=>{
+  let returnArray=[];
+  snapshot.array.forEach(element => {
+    let item=element.val();
+    item.key=element.key;
+    returnArray.push(item);
+
+  });
+  return returnArray;
+}
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

@@ -12,6 +12,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NotificationsService } from './services/notifications.service';
 
 @Component({
   selector: 'app-root',
@@ -69,6 +70,7 @@ export class AppComponent implements OnInit {
     private storage:AngularFireStorage, 
     private modalController: ModalController,
     public translate:TranslateService,
+    public notifications:NotificationsService
     
   ) {
     this.initializeApp();
@@ -85,7 +87,9 @@ export class AppComponent implements OnInit {
       this.authS.logout();
       this.authS.init();
       console.log("Soy el usuario con correo-> "+this.user.email);
-
+      this.notifications.initNotifications();
+      console.log(this.notifications);
+      
       this.translate.addLangs(environment.currentLanguages);  //add all languages
       this.translate.setDefaultLang(environment.defaultLanguage); //use default language
       if (this.translate.getBrowserLang) {  //if browsers's language is avalaible is set up as default

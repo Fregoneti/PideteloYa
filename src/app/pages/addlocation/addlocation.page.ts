@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+import { NativeGeocoder,NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { ModalController } from '@ionic/angular';
 import { Map, tileLayer, marker } from "leaflet";
-import {NativeGeocoderOptions} from "@ionic-native/native-geocoder/ngx";
+
 
 @Component({
   selector: 'app-addlocation',
@@ -13,29 +13,50 @@ import {NativeGeocoderOptions} from "@ionic-native/native-geocoder/ngx";
 export class AddlocationPage implements OnInit {
 
  
- 
+//   iconRetinaUrl = 'assets/marker-icon-2x.png';
+//   iconUrl = 'assets/marker-icon.png';
+//   shadowUrl = 'assets/marker-shadow.png';
+//   iconDefault = icon({
+//  iconRetinaUrl:this.iconRetinaUrl,
+//  iconUrl:this.iconUrl,
+//  shadowUrl:this.shadowUrl,
+//  iconSize: [25, 41],
+//  iconAnchor: [12, 41],
+//  popupAnchor: [1, -34],
+//  tooltipAnchor: [16, -28],
+//  shadowSize: [41, 41]
+// });
+
+
+
+
   map: Map;
   coor:any[]=[];
   newMarker: any;
   address: string[];
   longitud:string;
   latitud:string;
+  geo: any;
   
 
 constructor(private geocoder: NativeGeocoder, private router: Router, 
   private modalController:ModalController,
  ) {
+   
+  
+ // Marker.prototype.options.icon = this.iconDefault;
    //this.coor[0]="Latitud",
    //this.coor[1]="Longitud"
  }
   ngOnInit(): void {
+   // Marker.prototype.options.icon = this.iconDefault;
    // console.log(this.nota);
   
     
   }
-  ngOnDestroy(): void {
-    this.map.remove();
-  }
+  // ngOnDestroy(): void {
+  //   this.map.remove();
+  // }
   
 ionViewDidEnter() {
   console.log("entro");
@@ -50,12 +71,14 @@ tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     }).addTo(this.map);
   }
  locatePosition() {
-    //let coor = await this.geo.getCurrentPosition(succes); 
+    //let coor = await this.geo.getCurrentPosition(37.585186,-4.639252); 
     this.map.locate({ setView: true }).on("locationfound", (e: any) => {
+     // Marker.prototype.options.icon = this.iconDefault;
       this.newMarker = marker([e.latitude, e.longitude] ,  {
         
         draggable: true
       }).addTo(this.map);
+
       
       this.coor[0]=e.latitude;
       this.coor[1]=e.longitude;

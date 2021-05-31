@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Lugar } from 'src/app/model/lugar';
 import { LugarService } from 'src/app/services/lugar.service';
+import { CreateRequestPlacePage } from '../create-request-place/create-request-place.page';
 import { InspectPage } from '../inspect/inspect.page';
 
 @Component({
@@ -102,6 +103,17 @@ export class HomePage implements OnInit {
         event.target.disabled = true;
       }
     }, 500);
+  }
+
+  public async createRequestPlace(){
+    const modal = await this.modalController.create({
+      component: CreateRequestPlacePage,
+      cssClass: 'my-custom-class',
+      componentProps:{
+        
+      }
+    });
+    return await modal.present();
   }
 
 }

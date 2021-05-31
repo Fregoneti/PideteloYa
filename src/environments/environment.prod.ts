@@ -15,6 +15,7 @@ export const environment = {
     measurementId: "G-GD91C6K0W4"
   },
   comentariosCollection:'Comentarios', //Colección de comentarios
+  solicitudesCollection:'Solicitudes', //Colección de comentarios
   lugaresCollection:'Lugares', //Colección de lugares
   currentLanguages:['es','en'], //idiomas disponibles de la aplicación
   defaultLanguage:"en",  //idioma por defecto

@@ -40,7 +40,7 @@ export class ComentariosPage implements OnInit {
   public cargaDatos($event = null) {
 
     console.log(this.listaComentarios);
-
+    
     try {
       this.lugarS.leerComentarios(this.lugar.id)
         .subscribe((info: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>) => {
